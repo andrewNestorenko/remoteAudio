@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     player.init();
     document.getElementById("player-holder").appendChild(player.render());
 });
-var socket = io.connect('http://172.22.108.4:3000');
+var socket = io.connect('http://remote.nestorenko.info');
 socket.on('command', function (data) {
     player.processCommand(data);
 });
@@ -33,12 +33,14 @@ var Player = function () {
 
         play: function () {
             if (this.player.paused) {
+                this.changeVolumeTo(this.player.volume);
                 this.player.play();
             }
             return this;
         },
 
-        next: function () {},
+        next: function () {
+        },
 
         pause: function () {
             this.player.pause();
@@ -56,17 +58,10 @@ var Player = function () {
             return this;
         },
 
-        unmute: function () {
-            if (true == this.player.muted) {
-                this.player.muted = false;
-            }
-            return this;
-        },
-
-        processCommand: function(data) {
+        processCommand: function (data) {
             console.log("Command has been received");
             console.log(data);
-            switch(data.command) {
+            switch (data.command) {
                 case "play":
                     if (typeof data.url === 'string') {
                         this.playSrc(data.url);
@@ -86,11 +81,18 @@ var Player = function () {
                 case "unmute":
                     this.mute(false);
                     break;
-
+                case "seeking":
+                    this.seek(data.currentTime);
+                    break;
             }
         },
 
-        changeVolumeTo: function(vol) {
+        seek: function (time) {
+            this.player.currentTime(time);
+            return this;
+        },
+
+        changeVolumeTo: function (vol) {
             this.player.volume = parseFloat(vol);
             return this;
         }
