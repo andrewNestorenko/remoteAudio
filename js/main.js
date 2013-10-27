@@ -33,7 +33,7 @@ var Player = function () {
 
         play: function () {
             if (this.player.paused) {
-                this.changeVolumeTo(this.player.volume);
+                this.changeVolumeTo(0).changeVolumeTo(this.player.volume);
                 this.player.play();
             }
             return this;
@@ -97,6 +97,4 @@ var Player = function () {
             return this;
         }
     }
-
-
 };
