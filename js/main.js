@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     player.init();
     document.getElementById("player-holder").appendChild(player.render());
 });
-var socket = io.connect('http://remote.nestorenko.info');
+var socket = io.connect('http://remote.nestorenko.info:3000');
 socket.on('command', function (data) {
     player.processCommand(data);
 });
@@ -88,7 +88,7 @@ var Player = function () {
         },
 
         seek: function (time) {
-            this.player.currentTime(time);
+            this.player.currentTime = time;
             return this;
         },
 

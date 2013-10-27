@@ -11,8 +11,8 @@ console.log(config);
 io.configure('production', function() {
     io.set('transports', [
         "websocket",
-        "htmlfile",
-        "xhr-polling"
+        "xhr-polling",
+        "htmlfile"
     ]);
 });
 
