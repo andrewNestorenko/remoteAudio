@@ -33,8 +33,8 @@ var Player = function () {
 
         play: function () {
             if (this.player.paused) {
-                this.changeVolumeTo(0).changeVolumeTo(this.player.volume);
                 this.player.play();
+                this.changeVolumeTo(this.player.volume + 0.000001);
             }
             return this;
         },
