@@ -3,40 +3,31 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-switch.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-switch.min.js"></script>
-
-    <style>
-        body {
-            height: 400px;
-            width: 200px;
-        }
-        .switch-mini {
-            height: 23px;
-        }
-    </style>
 </head>
 <body>
 
-<label for="mute-switch">Enabled?</label>
-<div class="make-switch switch-mini"
-     id="enabled-switch"
->
-    <input type="checkbox" />
-</div>
+<div class="controls">
+    <div class="make-switch switch-mini control"
+         id="enabled-switch"
+            >
+        <input type="checkbox"/>
+    </div>
 
-<label for="mute-switch">Mute sound?</label>
-<div class="make-switch switch-mini"
-     id="mute-switch"
-     data-on-label="<i class='icon-volume-up icon-white'></i>"
-     data-off-label="<i class='icon-volume-off icon-white'></i>"
-     data-on="success" data-off="danger"
-     data-on-label="f"
-     data-off-label="s"
->
-    <input type="checkbox" />
+    <div class="make-switch switch-mini control"
+         id="mute-switch"
+         data-on-label="<i class='icon-volume-up icon-white'></i>"
+         data-off-label="<i class='icon-volume-off icon-white'></i>"
+         data-on="success" data-off="danger"
+         data-on-label="f"
+         data-off-label="s"
+            >
+        <input type="checkbox"/>
+    </div>
 </div>
 
 </body>
