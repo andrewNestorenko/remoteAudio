@@ -11,7 +11,8 @@
     },
     "permissions": [
         "http://vk.com/",
-        "http://remote.nestorenko.info/"
+        "http://remote.nestorenko.info/",
+        "storage"
     ],
     "content_scripts": [
         {

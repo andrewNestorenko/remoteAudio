@@ -39,9 +39,6 @@ var Player = function () {
             return this;
         },
 
-        next: function () {
-        },
-
         pause: function () {
             this.player.pause();
         },
