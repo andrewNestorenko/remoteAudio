@@ -16,3 +16,7 @@ body {
 .control {
     margin:10px;
 }
+
+.range {
+    width:100px;
+}
