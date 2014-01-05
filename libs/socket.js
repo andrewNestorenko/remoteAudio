@@ -6,6 +6,10 @@ module.exports = function(server) {
         "htmlfile"
     ]);
 
+//    io.set('authorization', function(handshake, callback) {
+//
+//    });
+
     io.sockets.on('connection', function (socket) {
         console.log('User is joined');
     });

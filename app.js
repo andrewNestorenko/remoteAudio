@@ -17,7 +17,7 @@ app.configure(function() {
     app.use(passport.session());
     app.use(require('./middleware/loadUser'));
     app.use(require('./middleware/navigation'));
-//    app.set('io', io);
+    app.set('io', io);
     app.engine('swig', swig.renderFile);
     app.use(express.static('public'));
     app.set('views', __dirname + '/views');
