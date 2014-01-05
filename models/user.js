@@ -24,6 +24,12 @@ var UserSchema = Schema({
     },
     rawUser: {
         type: Object
+    },
+    accessToken : {
+        type : String
+    },
+    refreshToken : {
+        type : String
     }
 });
 

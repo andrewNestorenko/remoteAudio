@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>
@@ -5,21 +6,24 @@
                 Audio player
             {% endblock %}
         </title>
-        <script src="/vendors/bower_components/jquery/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href="/vendors/bower_components/bootstrap/dist/css/bootstrap.css"/>
-        <script src="/vendors/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="/css/main.css"/>
 
         <script src="/socket.io/socket.io.js"></script>
         <script src="/js/main.js"></script>
     </head>
     <body>
-
     {% include "../blocks/navigation.swig" %}
     <div class="container">
         <p>
             {% block content%}{% endblock %}
         </p>
-    </div><!-- /.container -->
+    </div>
 
+    <script src="/vendors/bower_components/jquery/jquery.min.js"></script>
+    <script src="/vendors/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    {% block scripts %}{% endblock %}
     </body>
 </html>

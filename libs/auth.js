@@ -28,7 +28,9 @@ passport.use(
                         username: profile.username,
                         profileId: profile.id,
                         password: 'test123',
-                        rawUser: profile
+                        rawUser: profile,
+                        accessToken : accessToken,
+                        refreshToken : refreshToken
                     });
                     user.save(function(err, user) {
                         if (err) throw err;
