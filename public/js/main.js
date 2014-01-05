@@ -12,7 +12,7 @@ var Player = function () {
     return {
         init: function () {
             this.player = new Audio();
-            this.player.controls = true;
+            this.player.controls = false;
             console.log('player is initialized');
         },
 

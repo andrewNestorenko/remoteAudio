@@ -11,10 +11,15 @@ document.addEventListener('DOMContentLoaded', function () {
             player.muted = changes.localMute.newValue;
         }
         if (changes.hasOwnProperty('enabled')) {
+            player.remoteAudioEnabled = changes.enabled.newValue;
             if (false == changes.enabled.newValue) {
                 sendRemoteCommand('pause', {});
+            } else {
+                console.log('Player event is dispatched');
+                player.dispatchEvent(new Event('play'));
+                player.dispatchEvent(new Event('volumechange'));
+                player.dispatchEvent(new Event('seeking'));
             }
-            player.remoteAudioEnabled = changes.enabled.newValue;
         }
         if (changes.hasOwnProperty('volumeMultiplier')) {
             var e = new Event('volumechange');
@@ -26,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 var processPlayer = function (p) {
     p.addEventListener('play', function (e) {
-        var src = this.src.substring(0, this.src.lastIndexOf('mp3') + 3)
+        var src = this.src.substring(0, this.src.lastIndexOf('mp3') + 3);
         if (false == p.muted) {
             chrome.storage.local.get('localMute', function (value) {
                 if (value.localMute) {
@@ -40,7 +45,6 @@ var processPlayer = function (p) {
                 console.log('Play is successfully send to server with url ' + src);
             });
         }
-
     });
 
     p.addEventListener('pause', function (e) {
@@ -53,6 +57,8 @@ var processPlayer = function (p) {
     p.addEventListener('volumechange', function (e) {
         if (p.remoteAudioEnabled) {
             var volume = p.volume;
+            var i = [];
+            i.indexOf();
             chrome.storage.local.get('volumeMultiplier', function (result) {
                 var volumeMultiplier = parseFloat(result.volumeMultiplier);
                 if (!volumeMultiplier || volumeMultiplier == 0 || volumeMultiplier > 1) {
@@ -66,8 +72,6 @@ var processPlayer = function (p) {
 
         }
     });
-
-
     p.addEventListener('seeking', function (e) {
         if (p.remoteAudioEnabled) {
             sendRemoteCommand('seeking', {currentTime: this.currentTime}, function () {
@@ -75,7 +79,7 @@ var processPlayer = function (p) {
             })
         }
     });
-}
+};
 
 function sendRemoteCommand(command, extraData, success, error) {
     extraData['command'] = command;

@@ -1,0 +1,17 @@
+{
+    "name": "audio",
+    "version": "1.0.0",
+    "description": "Remote audio player",
+    "authors": [
+        "Andrew Nestorenko"
+    ],
+    "private": true,
+    "ignore": [
+        "**/.*"
+    ],
+    "dependencies": {
+        "bootstrap": "3.0.3",
+        "jquery": "*",
+        "less": "1.4.2"
+    }
+}

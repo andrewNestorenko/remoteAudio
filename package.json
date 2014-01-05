@@ -1,9 +1,12 @@
 {
-    "name": "remote-audio",
-    "version": "0.0.1",
-    "dependencies": {
-        "express": "3.*",
-        "jade" : "*",
-        "socket.io" : "*"
-    }
+  "name": "remote-audio",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.*",
+    "socket.io": "*",
+    "swig": "~1.2.2",
+    "mongoose": "~3.8.3",
+    "passport": "~0.1.17",
+    "passport-vkontakte": "~0.2.1"
+  }
 }
