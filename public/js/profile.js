@@ -3,7 +3,7 @@ document.querySelector('#grab-all').addEventListener('click', function (e) {
     button.innerText = 'Downloading... please wait';
     button.disabled = true;
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", 'http://localhost:3000/user/download-collection', true);
+    xhr.open("GET", 'http://remote.nestorenko.info:3000/user/download-collection', true);
     xhr.send();
 
     socket.emit('start-grab-collection');

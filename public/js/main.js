@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ph.appendChild(player.render());
     }
 });
-var socket = io.connect('http://192.168.0.103:3000');
+var socket = io.connect('http://remote.nestorenko.info:3000');
 
 
 socket.on('command', function (data) {
