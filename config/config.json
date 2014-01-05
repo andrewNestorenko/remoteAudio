@@ -1,0 +1,16 @@
+{
+    "app" : {
+        "port" : 3000
+    },
+    "mongoose" : {
+        "uri" : "mongodb://localhost/audio",
+        "options" : {}
+    },
+    "passport": {
+        "vk": {
+            "clientId": 4081863,
+            "clientSecret": "18DDm7ISwPLitO9H4KHV",
+            "callbackURL":  "http://localhost:3000/auth/vkontakte/callback"
+        }
+    }
+}
