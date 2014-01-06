@@ -6,7 +6,7 @@ exports = module.exports = {
 
     post: function(req, res, next) {
         var url = req.body.url;
-        app.get('io').sockets.emit('command', req.body);
+        req.app.get('io').sockets.emit('command', req.body);
         res.end('');
     }
 }

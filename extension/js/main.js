@@ -95,7 +95,7 @@ function sendRemoteCommand(command, extraData, success, error) {
             }
         }
     };
-    xhr.open("POST", 'http://remote.nestorenko.info:3000', true);
+    xhr.open("POST", 'http://remote.nestorenko.info/command', true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send(params.join('&'));
 }
