@@ -15,7 +15,6 @@ module.exports = {
                          } catch (e) {
                              callback(e);
                          }
-
                     });
                 }).on('error', function(err) {
                     callback(err);

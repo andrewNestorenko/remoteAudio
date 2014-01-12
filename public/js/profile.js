@@ -9,4 +9,7 @@ document.querySelector('#grab-all').addEventListener('click', function (e) {
     socket.on('grab-progress', function(data) {
         button.innerText = 'Downloading..' + data.progress + '%';
     });
+    socket.on('grab-progress-complete', function(data) {
+        console.log(data);
+    })
 });

@@ -32,16 +32,16 @@ passport.use(
                         accessToken : accessToken,
                         refreshToken : refreshToken
                     });
-                    user.save(function(err, user) {
-                        if (err) throw err;
-                        done(null, user);
-                    });
+                } else {
+                    user.accessToken = accessToken;
                 }
+                user.save(function(err, user) {
+                    if (err) throw err;
+                    done(null, user);
+                });
                 done(null, user);
             });
         })
 );
-
-
 
 module.exports = passport;
