@@ -23,10 +23,10 @@ Downloader.prototype.download = function(data, callback) {
         function(item, cb) {
             var path = require('path').join(that.basepath, item.fileName);
             fs.stat(that.basepath, function(err, info) {
-                if (err) fs.mkdir(path, function(err) {
+                if (err) fs.mkdir(that.basepath, function(err) {
                     if (err) cb(err);
                 });
-                var file = fs.createWriteStream(path, {flags: 'w'})
+                var file = fs.createWriteStream(path, {flags: 'w'});
                 http.get(item.url, function(response) {
                     response.pipe(file);
                     response.on('end', function() {
