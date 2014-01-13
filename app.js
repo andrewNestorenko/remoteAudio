@@ -55,7 +55,7 @@ app.get('/auth/vkontakte/callback',
     function(req, res) {
         // Successful authentication, redirect home.
         console.log('auth done');
-        res.redirect('/');
+        res.redirect('/profile');
     }
 );
 

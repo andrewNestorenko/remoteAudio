@@ -31,8 +31,8 @@ Downloader.prototype.download = function(data, callback) {
                     response.pipe(file);
                     response.on('end', function() {
                         file.close();
-                        that.emit('complete', {progress: parseInt((done + skipped) / length * 100, 10)});
                         done++;
+                        that.emit('complete', {progress: parseInt((done + skipped) / length * 100, 10)});
                         cb(null);
                     });
                 }).on('error', function(err) {
@@ -43,7 +43,6 @@ Downloader.prototype.download = function(data, callback) {
                     skipped++;
                     that.emit('skipped', path);
                 });
-
             });
         },
         function(err) {
